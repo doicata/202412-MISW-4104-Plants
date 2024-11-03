@@ -10,7 +10,37 @@
   </head>
   <body>
     <div class="container-fluid">
-      aqui va la lista de plantas
+      <div class="row">
+        <div class="col-12">
+          <h1>listado de plantas</h1>
+        </div>
+      </div>
+      <div class="row">
+        <table class="table table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Nombre comun</th>
+              <th>Tipo</th>
+              <th>Clima</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let plant of plants">
+              <td>{{ plant.id }}</td>
+              <td>{{ plant.nombre_cientifico }}</td>
+              <td>{{ plant.tipo }}</td>
+              <td>{{ plant.clima }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Total plantas de interior: {{Houseplants}}</p>
+          <p>Total plantas de exterior: {{Outdoorplants}}</p>
+        </div>
+      </div>
     </div>
   </body>
 </html>

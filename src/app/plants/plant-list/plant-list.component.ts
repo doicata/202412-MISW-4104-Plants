@@ -11,6 +11,9 @@ export class PlantListComponent implements OnInit {
 
  //Variable para almacenar las plantas
  plants: Array<Plant> = [];
+ Houseplants: number = 0;
+ Outdoorplants: number = 0;
+
 
  constructor(private plantsService: PlantsService) { }
 
@@ -18,6 +21,13 @@ export class PlantListComponent implements OnInit {
  getPlants() {
   this.plantsService.getPlants().subscribe((plants: Plant[]) => {
     this.plants = plants;
+    for(let plant of this.plants){
+      if(plant.tipo === "Interior"){
+        this.Houseplants += 1;
+      }else if(plant.tipo === "Exterior"){
+        this.Outdoorplants += 1;
+      }
+    }
   })
  }
  
