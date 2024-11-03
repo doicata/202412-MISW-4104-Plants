@@ -46,10 +46,22 @@ describe('PlantListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create rows for each plant plus thead', () => {
+  it('should table', () => {
+    const debug = fixture.debugElement;
+    const table = debug.queryAll(By.css('table'));
+    expect(table).toBeTruthy();
+  });
+
+  it('should thead', () => {
+    const debug = fixture.debugElement;
+    const thead = debug.queryAll(By.css('thead'));
+    expect(thead.length).toBe(1);
+  });
+
+  it('should create rows for each plant', () => {
     const debug = fixture.debugElement;
     const rows = debug.queryAll(By.css('tbody tr'));
-    expect(rows.length).toBe(4);
+    expect(rows.length).toBe(3);
     // Suponiendo que generaste 3 plantas });
   });
 });
